@@ -15,10 +15,25 @@ code {
 #navigation{
   margin-top: 5%;
   margin-bottom: 5%;
+  text-align: center;
+}
+
+#route{
+  margin-top: 5%;
+  margin-bottom: 5%;
+  text-align: center;
+}
+
+#route a{
+  color: green;
+  font-size: 30px;
+  margin-right: 5%;
+  text-align: center;
 }
 
 #navigation a{
   margin-right: 10%;
+  text-align: left;
 }
 
 #navigation a:last-child{

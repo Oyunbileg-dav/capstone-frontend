@@ -2,9 +2,13 @@ import { Container, Col, Row } from "react-bootstrap";
 import "./App.css";
 import { Routes, Route} from "react-router-dom";
 import Account from "./Account";
-import FreeComponent from "./FreeComponent";
-import AuthComponent from "./AuthComponent";
 import ProtectedRoutes from "./ProtectedRoutes";
+import Dashboard from "./Dashboard";
+import CoursesList from "./CoursesList";
+import CoursesPage0 from "./CoursePage0";
+import Profile from "./Profile";
+import CoursePage1 from "./CoursePage1";
+import Lesson from "./Lesson";
 
 
 function App() {
@@ -12,19 +16,23 @@ function App() {
     <Container>
       <Row>
         <Col className="text-center">
-          <h1>React Authentication Tutorial</h1>
+          <h1>Capstone Web App Draft</h1>
           <section id="navigation">
             <a href="/">Home</a>
-            <a href="/free">Free Component</a>
-            <a href="/auth">Auth Component</a>
+            <a href="/courses-list">CoursesList</a>
+            <a href="/dashboard">Dashboard</a>
           </section>
         </Col>
       </Row>
       <Routes>
         <Route exact path="/" element={<Account/>} />
-        <Route exact path="/free" element={<FreeComponent/>} />
-        <Route exact path="/auth" element={<ProtectedRoutes/>}>
-          <Route path="/auth" element={<AuthComponent/>}/>
+        <Route exact path="/courses-list" element={<CoursesList/>} />
+        <Route exact path="/course-page0" element={<CoursesPage0/>} />
+        <Route element={<ProtectedRoutes/>}>
+          <Route path="/dashboard" element={<Dashboard/>}/>
+          <Route path="/profile" element={<Profile/>}/>
+          <Route path="/course-page1" element={<CoursePage1/>}/>
+          <Route path="/lesson" element={<Lesson/>}/>
         </Route>
       </Routes>
     </Container>
