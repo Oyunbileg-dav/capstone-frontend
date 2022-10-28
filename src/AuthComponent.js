@@ -5,6 +5,7 @@ import Cookies from "universal-cookie";
 import { Button } from "react-bootstrap";
 const cookies = new Cookies();
 const token = cookies.get("token");
+import FlashMessage from 'react-flash-message'
 
 export default function AuthComponent() {
   const [message, setMessage] = useState("");
@@ -33,7 +34,7 @@ export default function AuthComponent() {
     // destroy the cookie
     cookies.remove("token", { path: "/" });
     // redirect user to the landing page
-    window.location.href = "/";
+    window.location.href = "/"
   }
   return (
     <div className="text-center">
