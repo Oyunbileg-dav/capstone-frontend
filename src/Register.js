@@ -16,7 +16,7 @@ export default function Register(){
         // set configurations 
         const configuration = {
             method: "post",
-            url: "https://nodejs-auth-app-oyu.herokuapp.com/register",
+            url: "http://localhost:9000/register",
             data: {
                 email,
                 password
@@ -25,6 +25,9 @@ export default function Register(){
         // make the API call
         axios(configuration)
             .then((result) => {
+                // redirect user to the auth page
+                window.location.href = "/";
+
                 setRegister(true);
             })
             .catch((error) => {
@@ -34,8 +37,9 @@ export default function Register(){
       }
     return (
         <>
-        <h2>Register</h2>
-        <Form onSubmit={(e)=>handleSubmit(e)}>
+        <div className='content'>
+        <h2 className='word'>Start your learning today!</h2>
+        <Form onSubmit={(e)=>handleSubmit(e)} style={{color:'white'}}>
             {/* email */}
             <Form.Group controlId="formBasicEmail">
             <Form.Label>Email address</Form.Label>
@@ -60,17 +64,18 @@ export default function Register(){
             </Form.Group>
 
             {/* submit button */}
-            <Button variant="primary" type="submit" onClick={(e) => handleSubmit(e)}>
-            Submit
+            <Button className="btn" variant="secondary" type="submit" onClick={(e) => handleSubmit(e)} style={{backgroundColor:'#232323'}}>
+            Sign Up
             </Button>
             {/* display success message */}
             {register ? (
-            <p className="text-success">You Are Registered Successfully</p>
+            <p className="text-success">You are registered successfully!</p>
             ) : (
-            <p className="text-danger">You Are Not Registered</p>
+            <p className="text-danger">You are not registered</p>
             )}
 
         </Form>
+        </div>
 
         </>
     )

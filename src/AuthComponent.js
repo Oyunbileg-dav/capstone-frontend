@@ -5,7 +5,6 @@ import Cookies from "universal-cookie";
 import { Button } from "react-bootstrap";
 const cookies = new Cookies();
 const token = cookies.get("token");
-import FlashMessage from 'react-flash-message'
 
 export default function AuthComponent() {
   const [message, setMessage] = useState("");
@@ -14,7 +13,7 @@ export default function AuthComponent() {
     // set configurations for the API call here
     const configuration = {
       method: "get",
-      url: "https://nodejs-auth-app-oyu.herokuapp.com/auth-endpoint",
+      url: "http://localhost:9000/auth-endpoint",
       headers: {
         Authorization: `Bearer ${token}`,
       },

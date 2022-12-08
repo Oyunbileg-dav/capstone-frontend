@@ -1,39 +1,40 @@
 import React from "react";
-import { useEffect, useState,  } from "react";
-import axios from "axios";
-import { Routes, Route} from "react-router-dom";
-import CoursesPage0 from "./CoursePage0";
+import { useEffect, useState  } from "react";
+import Navbar from "./Navbar";
 
 export default function CoursesList() {
 
-  const [message, setMessage] = useState("");
+  const [data, setData] = useState();
+  const [isLoading, setIsLoading] = useState(true);
+
   useEffect(() => {
-    // set configurations for the API call here
-    const configuration = {
-      method: "get",
-      url: "https://nodejs-auth-app-oyu.herokuapp.com/courses-list",
-    };
-    // make the API call
-    axios(configuration)
-      .then((result) => {
-        // assign the message in our result to the message we initialized above
-        setMessage(result.data.message);
+    fetch("http://localhost:9000/courses/", {})
+      .then((response) => response.json())
+      .then((response) => {
+        setData(response);
+        setIsLoading(false);
       })
-      .catch((error) => {
-        error = new Error();
-      });
-  }, [])
+      .catch((error) => console.log(error));
+  }, []);
+
   return (
     <div>
-      <h1 className="text-center">Courses List</h1>
-      <h3 className="text-center text-danger">{message}</h3>  
-      <section id="route">
-        <a href="/course-page0">CoursePage0</a>
-      </section>
-      <Routes>
-          <Route path="/course-page0" element={<CoursesPage0/>}/>
-      </Routes>
+    <Navbar/>
+    <div className="content">
+      <h1 className="word">Courses List</h1>
+      <div class="card">
+      {!isLoading &&
+        data.map((course) => {
+          return (
+            <div class="container">
+            <h4><b>{course.courseName}</b></h4>
+            <p>{course.description}</p> 
+            </div>
+          );
+        })}
     </div>
-    
+    </div>
+    </div>
   );
-}
+};
+  

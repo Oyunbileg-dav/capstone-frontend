@@ -18,7 +18,7 @@ export default function Login(){
         // set configuration 
         const configuration = {
             method: "post",
-            url: "https://nodejs-auth-app-oyu.herokuapp.com/login",
+            url: "http://localhost:9000/login",
             data: {
                 email,
                 password
@@ -43,8 +43,9 @@ export default function Login(){
 
     return (
         <>
-        <h2>Login</h2>
-        <Form onSubmit={(e)=>handleSubmit(e)}>
+        <div className='content'>
+        <h2 className='word'>Welcome back!</h2>
+        <Form onSubmit={(e)=>handleSubmit(e)} style={{color:'white'}}>
             {/* email */}
             <Form.Group controlId="formBasicEmail">
             <Form.Label>Email address</Form.Label>
@@ -68,8 +69,8 @@ export default function Login(){
             </Form.Group>
 
             {/* submit button */}
-            <Button variant="primary" type="submit" onClick={(e)=>handleSubmit(e)}>
-            Submit
+            <Button className="btn" variant="secondary" type="submit" style={{backgroundColor:'#232323'}} onClick={(e)=>handleSubmit(e)}>
+            Log in
             </Button>
             {/* Display success message */}
             {login ? (
@@ -78,6 +79,8 @@ export default function Login(){
                 <p className="text-danger">You are not logged in</p>
             )}
         </Form>
+        </div>
+        
 
         </>
     )

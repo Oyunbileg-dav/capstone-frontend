@@ -1,41 +1,140 @@
-import { Container, Col, Row } from "react-bootstrap";
+import { Container} from "react-bootstrap";
 import "./App.css";
 import { Routes, Route} from "react-router-dom";
-import Account from "./Account";
 import ProtectedRoutes from "./ProtectedRoutes";
 import Dashboard from "./Dashboard";
 import CoursesList from "./CoursesList";
-import CoursesPage0 from "./CoursePage0";
 import Profile from "./Profile";
-import CoursePage1 from "./CoursePage1";
-import Lesson from "./Lesson";
+import CoursePage from "./CoursePage";
+import LessonsList from "./LessonsList";
+import LessonPage from "./LessonPage";
+import LandingPage from "./LandingPage";
+import SignUpPage from "./SignUpPage";
+import LoginPage from "./LoginPage";
+import PracticeLessons from "./PracticeLessons";
+import PracticePage from "./PracticePage";
+import Particles from "react-tsparticles";
+import './App.css';
+import { loadFull } from "tsparticles";
+import { useCallback } from "react";
+import LandingPageAuth from "./LandingPageAuth";
+import PageNotFound from "./404Page";
+
+
 
 
 function App() {
-  return (
+    const particlesInit = useCallback(async engine => {
+        console.log(engine);
+        // you can initiate the tsParticles instance (engine) here, adding custom shapes or presets
+        // this loads the tsparticles package bundle, it's the easiest method for getting everything ready
+        // starting from v2 you can add only the features you need reducing the bundle size
+        await loadFull(engine);
+    }, []);
+
+    const particlesLoaded = useCallback(async container => {
+        await console.log(container);
+    }, []);
+
+    return (
+    
     <Container>
-      <Row>
-        <Col className="text-center">
-          <h1>Capstone Web App Draft</h1>
-          <section id="navigation">
-            <a href="/">Home</a>
-            <a href="/courses-list">CoursesList</a>
-            <a href="/dashboard">Dashboard</a>
-          </section>
-        </Col>
-      </Row>
-      <Routes>
-        <Route exact path="/" element={<Account/>} />
-        <Route exact path="/courses-list" element={<CoursesList/>} />
-        <Route exact path="/course-page0" element={<CoursesPage0/>} />
+    <Particles
+            id="tsparticles"
+            init={particlesInit}
+            loaded={particlesLoaded}
+            options={{
+                background: {
+                    color: {
+                        value: "#363636",
+                    },
+                },
+                fpsLimit: 120,
+                interactivity: {
+                    events: {
+                        onClick: {
+                            enable: true,
+                            mode: "push",
+                        },
+                        onHover: {
+                            enable: true,
+                            mode: "repulse",
+                        },
+                        resize: true,
+                    },
+                    modes: {
+                        push: {
+                            quantity: 4,
+                        },
+                        repulse: {
+                            distance: 200,
+                            duration: 0.4,
+                        },
+                    },
+                },
+                particles: {
+                    color: {
+                        value: "#ffffff",
+                    },
+                    links: {
+                        color: "#ffffff",
+                        distance: 150,
+                        enable: true,
+                        opacity: 0.2,
+                        width: 1,
+                    },
+                    collisions: {
+                        enable: true,
+                    },
+                    move: {
+                        directions: "none",
+                        enable: true,
+                        outModes: {
+                            default: "bounce",
+                        },
+                        random: false,
+                        speed: 1,
+                        straight: false,
+                    },
+                    number: {
+                        density: {
+                            enable: true,
+                            area: 1500,
+                        },
+                        value: 80,
+                    },
+                    opacity: {
+                        value: 0.5,
+                    },
+                    shape: {
+                        type: "circle",
+                    },
+                    size: {
+                        value: { min: 1, max: 5 },
+                    },
+                },
+                detectRetina: true
+            }}
+        />
+    <Routes>
+        <Route path="/" element={<LandingPage/>} />
+        <Route path="/courses" element={<CoursesList/>} />
+        <Route path="/login" element={<LoginPage/>}/>
+        <Route path="/signup" element={<SignUpPage/>}/>
         <Route element={<ProtectedRoutes/>}>
+        <Route path="/home" element={<LandingPageAuth/>} />
           <Route path="/dashboard" element={<Dashboard/>}/>
           <Route path="/profile" element={<Profile/>}/>
-          <Route path="/course-page1" element={<CoursePage1/>}/>
-          <Route path="/lesson" element={<Lesson/>}/>
+          <Route path="/courses/:courseCode" element={<CoursePage/>}/>
+          <Route path="/lessons" element={<LessonsList/>}/>
+          <Route path="/lessons/:lessonCode" element={<LessonPage/>}/>
+          <Route path="/practice-lessons" element={<PracticeLessons/>}/>
+          <Route path="/practice-lessons/:practiceCode" element={<PracticePage/>}/>
         </Route>
+        <Route path="*" element={<PageNotFound/>} />
       </Routes>
     </Container>
+    
   );
 }
 
