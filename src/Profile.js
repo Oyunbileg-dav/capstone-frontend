@@ -13,7 +13,7 @@ export default function Profile() {
     // set configurations for the API call here
     const configuration = {
       method: "get",
-      url: "http://localhost:9000/profile",
+      url: "https://nodejs-auth-app-oyu.herokuapp.com/profile",
       headers: {
         Authorization: `Bearer ${token}`,
       },

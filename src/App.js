@@ -99,7 +99,7 @@ function App() {
                     number: {
                         density: {
                             enable: true,
-                            area: 1500,
+                            area: 5000,
                         },
                         value: 80,
                     },

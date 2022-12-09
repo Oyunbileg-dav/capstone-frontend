@@ -11,12 +11,12 @@ export default function LessonPage() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`http://localhost:9000/lessons/${lessonCode}`, {})
+    fetch(`https://nodejs-auth-app-oyu.herokuapp.com/lessons/${lessonCode}`, {})
       .then((res) => res.json())
       .then((response) => {
         setData(response);
         setIsLoading(false);
-        console.log(`http://localhost:9000/lessons/${lessonCode}`);
+        console.log(`https://nodejs-auth-app-oyu.herokuapp.com/lessons/${lessonCode}`);
       })
       .catch((error) => console.log(error));
   }, [lessonCode]);

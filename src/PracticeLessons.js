@@ -9,7 +9,7 @@ export default function PracticeLessons() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    fetch("http://localhost:9000/practices/", {})
+    fetch("https://nodejs-auth-app-oyu.herokuapp.com/practices/", {})
       .then((response) => response.json())
       .then((response) => {
         setData(response);

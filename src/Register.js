@@ -16,7 +16,7 @@ export default function Register(){
         // set configurations 
         const configuration = {
             method: "post",
-            url: "http://localhost:9000/register",
+            url: "https://nodejs-auth-app-oyu.herokuapp.com/register",
             data: {
                 email,
                 password

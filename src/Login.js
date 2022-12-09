@@ -18,7 +18,7 @@ export default function Login(){
         // set configuration 
         const configuration = {
             method: "post",
-            url: "http://localhost:9000/login",
+            url: "https://nodejs-auth-app-oyu.herokuapp.com/login",
             data: {
                 email,
                 password

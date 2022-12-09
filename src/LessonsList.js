@@ -9,7 +9,7 @@ export default function LessonsList() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    fetch("http://localhost:9000/lessons/", {})
+    fetch("https://nodejs-auth-app-oyu.herokuapp.com/lessons/", {})
       .then((response) => response.json())
       .then((response) => {
         setData(response);

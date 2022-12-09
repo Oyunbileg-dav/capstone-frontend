@@ -12,12 +12,12 @@ export default function PracticePage() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`http://localhost:9000/practices/${practiceCode}`, {})
+    fetch(`https://nodejs-auth-app-oyu.herokuapp.com/practices/${practiceCode}`, {})
       .then((res) => res.json())
       .then((response) => {
         setData(response);
         setIsLoading(false);
-        console.log(`http://localhost:9000/practices/${practiceCode}`);
+        console.log(`https://nodejs-auth-app-oyu.herokuapp.com/practices/${practiceCode}`);
       })
       .catch((error) => console.log(error));
   }, [practiceCode]);
