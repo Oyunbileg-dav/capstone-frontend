@@ -37,7 +37,7 @@ export default function CoursePage() {
           <Link to="/dashboard">Back to dashboard</Link>
           </div>
           <div className="video-player">
-          <video src={video1} width="1200" height="600" controls="controls" autoplay="true" />
+          <video src={video1} width="90%" controls="controls" autoplay="true" />
           </div>
           </div>
         </>

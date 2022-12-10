@@ -36,7 +36,7 @@ export default function LessonPage() {
           <Link to="/dashboard">Back to dashboard</Link>
           </div>
           <div className="video-player">
-          <video src={video3} width="1200" height="600" controls="controls" autoplay="true" />
+          <video src={video3} width="90%" controls="controls" autoplay="true" />
           </div>
           </div>
         </>
