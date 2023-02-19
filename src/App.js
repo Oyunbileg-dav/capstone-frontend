@@ -14,6 +14,9 @@ import LoginPage from "./LoginPage";
 import PracticeLessons from "./PracticeLessons";
 import PracticePage from "./PracticePage";
 import Particles from "react-tsparticles";
+import PracticeSitesList from "./PracticeSitesList";
+import Explore from "./Explore";
+import CourseLessons from "./CourseLessons";
 import './App.css';
 import { loadFull } from "tsparticles";
 import { useCallback } from "react";
@@ -47,7 +50,7 @@ function App() {
                 background: {
                     color: {
                         value: "#363636",
-                    },
+                    }
                 },
                 fpsLimit: 120,
                 interactivity: {
@@ -126,10 +129,13 @@ function App() {
           <Route path="/dashboard" element={<Dashboard/>}/>
           <Route path="/profile" element={<Profile/>}/>
           <Route path="/courses/:courseCode" element={<CoursePage/>}/>
+          <Route path="/courses/:courseCode/lessons" element={<CourseLessons/>}/>
           <Route path="/lessons" element={<LessonsList/>}/>
           <Route path="/lessons/:lessonCode" element={<LessonPage/>}/>
           <Route path="/practice-lessons" element={<PracticeLessons/>}/>
           <Route path="/practice-lessons/:practiceCode" element={<PracticePage/>}/>
+          <Route path="/practice-sites" element={<PracticeSitesList/>}/>
+          <Route path="/explore" element={<Explore/>}/>
         </Route>
         <Route path="*" element={<PageNotFound/>} />
       </Routes>

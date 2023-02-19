@@ -1,7 +1,11 @@
 import React from "react";
 import { useEffect, useState  } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
+import Cookies from "universal-cookie";
 import NavbarAuth from "./NavbarAuth";
+const cookies = new Cookies();
+const token = cookies.get("token");
 
 
 export default function Dashboard() {
@@ -9,20 +13,31 @@ export default function Dashboard() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    fetch("https://nodejs-auth-app-oyu.herokuapp.com/courses/", {})
-      .then((response) => response.json())
+    // set configurations for the API call here
+    const configuration = {
+      method: "get",
+      url: "https://nodejs-auth-app-oyu.herokuapp.com/dashboard/",
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    };
+    // make the API call
+    axios(configuration)
       .then((response) => {
-        setData(response);
+        // assign the message in our response to the message we initialized above
+        setData(response.data);
         setIsLoading(false);
       })
-      .catch((error) => console.log(error));
-  }, []);
-
+      .catch((error) => {
+        error = new Error();
+      });
+  }, [])
+  
   return (
     <div>
     <NavbarAuth/>
     <div className="content">
-      <h1 className="word">Courses List</h1>
+      <h1 className="word">Enrolled courses</h1>
       <div class="card">
       {!isLoading &&
         data.map((course) => {
@@ -37,4 +52,4 @@ export default function Dashboard() {
     </div>
     </div>
   );
-};
+}

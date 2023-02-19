@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  display: flex;
 }
 
 .App-logo {
@@ -44,7 +45,7 @@ body {
 canvas {
   display: block;
 }
-#tsparticles {
+/* #tsparticles {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -53,4 +54,111 @@ canvas {
   background-size: cover;
   background-position: 50% 50%;
   z-index:-1;
+} */
+
+#tsparticles {   
+  height: 100vh;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0;
+  padding: 0;
+  z-index: -1;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+#navigation{
+  margin-top: 5%;
+  margin-bottom: 5%;
+  text-align: center;
+}
+
+#route{
+  margin-top: 5%;
+  margin-bottom: 5%;
+  text-align: center;
+}
+
+#route a{
+  color: green;
+  font-size: 30px;
+  margin-right: 5%;
+  text-align: center;
+}
+
+#navigation a{
+  margin-right: 10%;
+  text-align: left;
+}
+
+#navigation a:last-child{
+  margin-right: 0;
+}
+
+.content {
+  margin-top: 70px;
+  display: 'block'; 
+  width: 700; 
+  padding: 30;
+}
+
+.word {
+  color: white;
+  margin-top: 50px;
+  text-align: center;
+  opacity: 90%;
+}
+
+.card {
+  /* Add shadows to create the "card" effect */
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  margin-top: 40px;
+  opacity: 70%
+}
+
+
+
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+/* Add some padding inside the card container */
+.container {
+  padding: 2px 16px;
+  margin-top: 10px;
+}
+
+.btn {
+  border: 2px solid black;
+  background-color: white;
+  color: black;
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.video-player {
+  margin-top: 10px;
+  text-align: center;
+  flex: 1;
+}
+
+.title {
+  color: white;
 }

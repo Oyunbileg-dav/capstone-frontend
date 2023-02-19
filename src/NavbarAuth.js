@@ -43,6 +43,7 @@ export default function NavbarAuth() {
               Dashboard
             </MDBNavbarLink>
             <MDBNavbarLink href='/profile'>My Profile</MDBNavbarLink>
+            <MDBNavbarLink href='/explore'>Explore</MDBNavbarLink>
           </MDBNavbarNav>
           <div style={{float:'right'}}>
           <Button onClick={() => logout()} style={{backgroundColor:'#232323'}} variant="secondary">Logout</Button>

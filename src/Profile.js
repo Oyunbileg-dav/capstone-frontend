@@ -7,22 +7,24 @@ const cookies = new Cookies();
 const token = cookies.get("token");
 
 export default function Profile() {
-  const [message, setMessage] = useState("");
+  const [data, setData] = useState();
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     // set configurations for the API call here
     const configuration = {
       method: "get",
-      url: "https://nodejs-auth-app-oyu.herokuapp.com/profile",
+      url: "https://nodejs-auth-app-oyu.herokuapp.com/get-dashboard/",
       headers: {
         Authorization: `Bearer ${token}`,
       },
     };
     // make the API call
     axios(configuration)
-      .then((result) => {
-        // assign the message in our result to the message we initialized above
-        setMessage(result.data.message);
+      .then((response) => {
+        // assign the message in our response to the message we initialized above
+        setData(response.data);
+        setIsLoading(false);
       })
       .catch((error) => {
         error = new Error();
@@ -32,10 +34,13 @@ export default function Profile() {
   return (
     <div className="text-center">
     <NavbarAuth/>
+    {!isLoading && (
     <div className="content">
       <h1 className="text-center">Profile</h1>
-      <h3 className="text-center text-danger">{message}</h3>
+      <h3 className="text-center text-danger">{data.email}</h3>
     </div>
+    )
+    }
     </div>
   );
 }
