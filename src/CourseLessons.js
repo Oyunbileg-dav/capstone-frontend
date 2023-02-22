@@ -26,20 +26,21 @@ export default function CourseLessons() {
     <NavbarAuth/>
       {!isLoading && (
         <>
-          <div className="content">
-          <h1 className="word">{data.courseName}</h1>
+        <NavbarAuth/>
+        <div className="content">
+          <h1 className="word">Lessons List</h1>
           <div class="card">
-          <h4>Course Code: {data.courseCode}</h4>
-          <h4>Description: {data.description}</h4>
-          <h4>Duration: {data.duration}</h4>
-          <h4><b><Link to="/lessons"> Lessons </Link></b></h4>
-          <h4><b><Link to="/practice-lessons"> Practice Lessons </Link></b></h4>
-          <Link to="/dashboard">Back to dashboard</Link>
-          </div>
-          <div className="video-player">
-          <video src={video1} width="90%" controls="controls" autoplay="true" />
-          </div>
-          </div>
+          {!isLoading &&
+            data.map((lesson) => {
+              return (
+                <div class="container">
+                <h4><b><Link to={`/lessons/${lesson.lessonCode}`}> {lesson.lessonName} </Link></b></h4>
+                <p>{lesson.description}</p> 
+                </div>
+              );
+            })}
+        </div>
+        </div>
         </>
       )}
     </>

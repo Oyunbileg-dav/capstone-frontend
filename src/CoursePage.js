@@ -36,9 +36,9 @@ export default function CoursePage() {
           <h4><b><Link to="/practice-lessons"> Practice Lessons </Link></b></h4>
           <Link to="/dashboard">Back to dashboard</Link>
           </div>
-          <div className="video-player">
+          {/* <div className="video-player">
           <video src={video1} width="90%" controls="controls" autoplay="true" />
-          </div>
+          </div> */}
           </div>
         </>
       )}
