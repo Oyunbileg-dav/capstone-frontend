@@ -32,24 +32,59 @@ export default function Dashboard() {
         error = new Error();
       });
   }, [])
-  
-  return (
-    <div>
-    <NavbarAuth/>
-    <div className="content">
-      <h1 className="word">Enrolled courses</h1>
-      <div class="card">
-      {!isLoading &&
-        data.map((course) => {
-          return (
-            <div class="container">
-            <h4><b><Link to={`/courses/${course.courseCode}`}> {course.courseName} </Link></b></h4>
-            <p>{course.description}</p> 
-            </div>
-          );
-        })}
-    </div>
-    </div>
-    </div>
-  );
-}
+
+  if (!isLoading && data.length > 1){
+    return (
+      <div>
+      <NavbarAuth/>
+      <div className="content">
+        <h1 className="word">Enrolled courses</h1>
+        <div class="card">
+        {!isLoading &&
+          data.map((course) => {
+            return (
+              <div class="container">
+              <h4><b><Link to={`/courses/${course.courseCode}`}> {course.courseName} </Link></b></h4>
+              <p>{course.description}</p> 
+              </div>
+            );
+          })}
+      </div>
+      </div>
+      </div>
+    );
+        }
+    return (
+      <div>
+      <NavbarAuth/>
+      <div className="content">
+        <h1 className="word">Enrolled courses</h1>
+        <div class="card">
+        {!isLoading &&
+          <h4>You have not enrolled in any courses yet!</h4>
+          }
+      </div>
+      </div>
+      </div>
+    )
+  }
+//   return (
+//     <div>
+//     <NavbarAuth/>
+//     <div className="content">
+//       <h1 className="word">Enrolled courses</h1>
+//       <div class="card">
+//       {!isLoading &&
+//         data.map((course) => {
+//           return (
+//             <div class="container">
+//             <h4><b><Link to={`/courses/${course.courseCode}`}> {course.courseName} </Link></b></h4>
+//             <p>{course.description}</p> 
+//             </div>
+//           );
+//         })}
+//     </div>
+//     </div>
+//     </div>
+//   );
+// }

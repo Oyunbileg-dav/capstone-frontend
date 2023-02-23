@@ -10,7 +10,6 @@ import LessonPage from "./LessonPage";
 import LandingPage from "./LandingPage";
 import SignUpPage from "./SignUpPage";
 import LoginPage from "./LoginPage";
-import PracticeLessons from "./PracticeLessons";
 import PracticePage from "./PracticePage";
 import Particles from "react-tsparticles";
 import Explore from "./Explore";
@@ -22,6 +21,8 @@ import LandingPageAuth from "./LandingPageAuth";
 import PageNotFound from "./404Page";
 import LessonPractices from "./LessonPractices";
 import PracticeSites from "./PracticeSites";
+import PracticeSitePage from "./PracticeSitePage";
+import ExploreCoursePage from "./ExploreCoursePage";
 
 
 
@@ -128,13 +129,14 @@ function App() {
         <Route path="/home" element={<LandingPageAuth/>} />
           <Route path="/dashboard" element={<Dashboard/>}/>
           <Route path="/profile" element={<Profile/>}/>
+          <Route path="explore/courses/:courseCode" element={<ExploreCoursePage/>}/>
           <Route path="/courses/:courseCode" element={<CoursePage/>}/>
           <Route path="/courses/:courseCode/lessons" element={<CourseLessons/>}/>
           <Route path="/lessons/:lessonCode" element={<LessonPage/>}/>
           <Route path="/lessons/:lessonCode/practices" element={<LessonPractices/>}/>
-          <Route path="/practice-lessons" element={<PracticeLessons/>}/>
           <Route path="/practice-lessons/:practiceCode" element={<PracticePage/>}/>
           <Route path="/practice-lessons/:practiceCode/practice-sites" element={<PracticeSites/>}/>
+          <Route path="/practice-sites/:practiceSiteCode" element={<PracticeSitePage/>}/>
           <Route path="/explore" element={<Explore/>}/>
         </Route>
         <Route path="*" element={<PageNotFound/>} />

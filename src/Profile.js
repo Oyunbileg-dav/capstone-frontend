@@ -14,7 +14,7 @@ export default function Profile() {
     // set configurations for the API call here
     const configuration = {
       method: "get",
-      url: "https://nodejs-auth-app-oyu.herokuapp.com/get-dashboard/",
+      url: "https://nodejs-auth-app-oyu.herokuapp.com/get-email/",
       headers: {
         Authorization: `Bearer ${token}`,
       },

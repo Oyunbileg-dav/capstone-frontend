@@ -28,7 +28,7 @@ export default function Explore() {
         data.map((course) => {
           return (
             <div class="container">
-            <h4><b><Link to={`/courses/${course.courseCode}`}> {course.courseName} </Link></b></h4>
+            <h4><b><Link to={`/explore/courses/${course.courseCode}`}> {course.courseName} </Link></b></h4>
             <p>{course.description}</p> 
             </div>
           );
