@@ -4,21 +4,21 @@ import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom"
 import NavbarAuth from "./NavbarAuth";
 
-export default function CourseLessons() {
-  const { courseCode } = useParams()
+export default function LessonPractices() {
+  const { lessonCode } = useParams()
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`https://nodejs-auth-app-oyu.herokuapp.com/courses/${courseCode}/lessons`, {})
+    fetch(`https://nodejs-auth-app-oyu.herokuapp.com/lessons/${lessonCode}/practices`, {})
       .then((res) => res.json())
       .then((response) => {
         setData(response);
         setIsLoading(false);
-        console.log(`https://nodejs-auth-app-oyu.herokuapp.com/courses/${courseCode}/lessons`);
+        console.log(`https://nodejs-auth-app-oyu.herokuapp.com/lessons/${lessonCode}/practices`);
       })
       .catch((error) => console.log(error));
-  }, [courseCode]);
+  }, [lessonCode]);
 
   return (
     <>
@@ -27,14 +27,15 @@ export default function CourseLessons() {
         <>
         <NavbarAuth/>
         <div className="content">
-          <h1 className="word">Lessons List</h1>
+          <h1 className="word">Practice Lessons</h1>
           <div class="card">
           {!isLoading &&
-            data.map((lesson) => {
+            data.map((practice) => {
               return (
                 <div class="container">
-                <h4><b><Link to={`/lessons/${lesson.lessonCode}`}> {lesson.lessonName} </Link></b></h4>
-                <p>{lesson.description}</p> 
+                <h4><b><Link to={`/practice-lessons/${practice.practiceCode}`}> {practice.practiceName} </Link></b></h4>
+                <p>{practice.description}</p> 
+                <p>{practice.duration}</p>
                 </div>
               );
             })}

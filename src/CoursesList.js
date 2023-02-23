@@ -21,7 +21,8 @@ export default function CoursesList() {
     <div>
     <Navbar/>
     <div className="content">
-      <h1 className="word">Courses List</h1>
+      <h1 className="word">Available courses</h1>
+      <p className="desc">Log in to access courses!</p>
       <div class="card">
       {!isLoading &&
         data.map((course) => {

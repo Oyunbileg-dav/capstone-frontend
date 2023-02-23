@@ -32,7 +32,7 @@ export default function LessonPage() {
           <h4>Lesson Code: {data.lessonCode}</h4>
           <h4>Description: {data.description}</h4>
           <h4>Duration: {data.duration}</h4>
-          <h4><b><Link to="/practice-lessons">Practice Lessons</Link></b></h4>
+          <h4><b><Link to={"/lessons/"+ lessonCode +"/practices"}>Practice Lessons</Link></b></h4>
           <Link to="/dashboard">Back to dashboard</Link>
           </div>
           <div className="video-player">

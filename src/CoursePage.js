@@ -33,7 +33,7 @@ export default function CoursePage() {
           <h4>Description: {data.description}</h4>
           <h4>Duration: {data.duration}</h4>
           <h4><b><Link to={"/courses/"+ courseCode +"/lessons"}> Lessons </Link></b></h4>
-          <h4><b><Link to="/practice-lessons"> Practice Lessons </Link></b></h4>
+          {/* <h4><b><Link to="/practice-lessons"> Practice Lessons </Link></b></h4> */}
           <Link to="/dashboard">Back to dashboard</Link>
           </div>
           {/* <div className="video-player">

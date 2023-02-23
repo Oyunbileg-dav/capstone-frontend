@@ -34,6 +34,7 @@ export default function PracticePage() {
           <h4>Description: {data.description}</h4>
           <h4>Duration: {data.duration}</h4>
           <h4><b><a href="https://docs.google.com/document/d/1Sp-QMKNSBBdTOSUGvN_tTrNwG54F_lEE/edit?usp=sharing&ouid=101711393580784015239&rtpof=true&sd=true">Access materials</a></b></h4>
+          <Link to={"/practice-lessons/"+practiceCode+"/practice-sites"}>Practice Sites</Link>
           <Link to="/dashboard">Back to dashboard</Link>
           </div>
           <div className="video-player">

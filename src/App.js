@@ -6,7 +6,6 @@ import Dashboard from "./Dashboard";
 import CoursesList from "./CoursesList";
 import Profile from "./Profile";
 import CoursePage from "./CoursePage";
-import LessonsList from "./LessonsList";
 import LessonPage from "./LessonPage";
 import LandingPage from "./LandingPage";
 import SignUpPage from "./SignUpPage";
@@ -14,7 +13,6 @@ import LoginPage from "./LoginPage";
 import PracticeLessons from "./PracticeLessons";
 import PracticePage from "./PracticePage";
 import Particles from "react-tsparticles";
-import PracticeSitesList from "./PracticeSitesList";
 import Explore from "./Explore";
 import CourseLessons from "./CourseLessons";
 import './App.css';
@@ -22,6 +20,8 @@ import { loadFull } from "tsparticles";
 import { useCallback } from "react";
 import LandingPageAuth from "./LandingPageAuth";
 import PageNotFound from "./404Page";
+import LessonPractices from "./LessonPractices";
+import PracticeSites from "./PracticeSites";
 
 
 
@@ -130,11 +130,11 @@ function App() {
           <Route path="/profile" element={<Profile/>}/>
           <Route path="/courses/:courseCode" element={<CoursePage/>}/>
           <Route path="/courses/:courseCode/lessons" element={<CourseLessons/>}/>
-          <Route path="/lessons" element={<LessonsList/>}/>
           <Route path="/lessons/:lessonCode" element={<LessonPage/>}/>
+          <Route path="/lessons/:lessonCode/practices" element={<LessonPractices/>}/>
           <Route path="/practice-lessons" element={<PracticeLessons/>}/>
           <Route path="/practice-lessons/:practiceCode" element={<PracticePage/>}/>
-          <Route path="/practice-sites" element={<PracticeSitesList/>}/>
+          <Route path="/practice-lessons/:practiceCode/practice-sites" element={<PracticeSites/>}/>
           <Route path="/explore" element={<Explore/>}/>
         </Route>
         <Route path="*" element={<PageNotFound/>} />
