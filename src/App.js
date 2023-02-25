@@ -23,6 +23,7 @@ import LessonPractices from "./LessonPractices";
 import PracticeSites from "./PracticeSites";
 import PracticeSitePage from "./PracticeSitePage";
 import ExploreCoursePage from "./ExploreCoursePage";
+import ExploreCourseEnroll from "./ExploreCourseEnroll";
 
 
 
@@ -130,6 +131,7 @@ function App() {
           <Route path="/dashboard" element={<Dashboard/>}/>
           <Route path="/profile" element={<Profile/>}/>
           <Route path="explore/courses/:courseCode" element={<ExploreCoursePage/>}/>
+          <Route path="explore/courses/:courseCode/enroll" element={<ExploreCourseEnroll/>}/>
           <Route path="/courses/:courseCode" element={<CoursePage/>}/>
           <Route path="/courses/:courseCode/lessons" element={<CourseLessons/>}/>
           <Route path="/lessons/:lessonCode" element={<LessonPage/>}/>

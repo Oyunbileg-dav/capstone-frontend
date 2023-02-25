@@ -34,14 +34,15 @@
     transform: rotate(0deg);
   }
   to {
-    transform: rotate(360deg);
+    transform: rotate(30deg);
   }
 }
 
 body {
   margin: 0;
-  font: normal 75% Arial, Helvetica, sans-serif;
+  font: normal 10% Arial, Helvetica, sans-serif;
 }
+
 canvas {
   display: block;
 }
@@ -66,14 +67,14 @@ canvas {
   z-index: -1;
 }
 
-body {
+/* body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
+} */
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
@@ -112,7 +113,7 @@ code {
   margin-top: 70px;
   display: 'block'; 
   width: 700; 
-  padding: 30;
+  padding: 30
 }
 
 .word {
@@ -127,6 +128,7 @@ code {
   margin-top: 20px;
   text-align: center;
   opacity: 70%;
+  font-size: 18px;
 }
 
 .card {
@@ -136,7 +138,6 @@ code {
   margin-top: 40px;
   opacity: 70%
 }
-
 
 
 /* On mouse-over, add a deeper shadow */
