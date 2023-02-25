@@ -29,12 +29,13 @@ export default function LessonPage() {
           <div className="content">
           <h1 className="word">{data.lessonName}</h1>
           <div class="card">
-          <h4>Lesson Code: {data.lessonCode}</h4>
-          <h4>Description: {data.description}</h4>
-          <h4>Duration: {data.duration}</h4>
-          <h4><b><Link to={"/lessons/"+ lessonCode +"/practices"}>Practice Lessons</Link></b></h4>
-          <h4><b><Link to={"/lessons/"+ lessonCode +"/quizzes"}>Practice Questions</Link></b></h4>
+          <div class="container">
+          <h5>Description: {data.description}</h5>
+          <h5>Duration: {data.duration}</h5>
+          <h5><b><Link to={"/lessons/"+ lessonCode +"/practices"}>Practice Lessons</Link></b></h5>
+          <h5><b><Link to={"/lessons/"+ lessonCode +"/quizzes"}>Practice Questions</Link></b></h5>
           <Link to="/dashboard">Back to dashboard</Link>
+          </div>
           </div>
           <div className="video-player">
           <video src={video3} width="90%" controls="controls" autoplay="true" />

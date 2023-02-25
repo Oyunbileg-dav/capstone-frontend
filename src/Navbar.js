@@ -26,7 +26,7 @@ export default function Navbar() {
         </MDBNavbarToggler>
         <MDBCollapse navbar show={showNavSecond} id='navbarColor02'>
           <MDBNavbarNav>
-            <MDBNavbarLink active aria-current='page' href='/'>
+            <MDBNavbarLink aria-current='page' href='/'>
               Home
             </MDBNavbarLink>
             <MDBNavbarLink href='/courses'>Courses</MDBNavbarLink>
