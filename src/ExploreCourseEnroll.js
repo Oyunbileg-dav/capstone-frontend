@@ -83,7 +83,7 @@ Thank you for choosing our online course, and we look forward to working with yo
             <Form.Check 
                 type='checkbox'
                 id='acknowledgement'
-                label='Do you want to enroll in?'
+                label='Yes, I want to enroll in!'
                 onChange = {(e) => setEmail(data.email)}
             />
             </Form.Group>

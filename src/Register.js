@@ -7,7 +7,9 @@ export default function Register(){
     // Initial state
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [register, setRegister] = useState(false);
+    const [passwordConfirm, setPasswordConfirm] = useState("");
+    const [helperText, setHelperText] = useState("")
+    const [className, setClassName] = useState("")
 
     const handleSubmit = (e) => {
         // prevent the form from refreshing the whole page
@@ -26,15 +28,27 @@ export default function Register(){
         axios(configuration)
             .then((result) => {
                 // redirect user to the auth page
-                window.location.href = "/";
-
-                setRegister(true);
+                window.location.href = "/login";
+                alert("You registered successfully!")
             })
             .catch((error) => {
                 error = new Error();
+                alert("Error! There alrady exists an account associated with this email address!")
             })
 
       }
+
+    const checkPassword = (passwordConfirm) => {
+        setPasswordConfirm(passwordConfirm);
+        if (password === passwordConfirm) {
+            setHelperText("Passwords match!");
+            setClassName('text-success')
+        } else {
+            setHelperText("Passwords do not match!");
+            setClassName('text-danger')
+        }
+    }
+
     return (
         <>
         <div className='content'>
@@ -63,16 +77,28 @@ export default function Register(){
                 placeholder="Password" />
             </Form.Group>
 
+            {/* password */}
+            <Form.Group controlId="formBasicPassword">
+            <Form.Label>Confirm Password</Form.Label>
+            <Form.Control 
+                type="password" 
+                name="confirm-password"
+                value={passwordConfirm}
+                // onChange={(e) => setPasswordConfirm(e.target.value)}
+                onChange={(e) => checkPassword(e.target.value)}
+                placeholder="Confirm password" />
+            </Form.Group>
             {/* submit button */}
             <Button className="btn" variant="secondary" type="submit" onClick={(e) => handleSubmit(e)} style={{backgroundColor:'#232323'}}>
             Sign Up
             </Button>
             {/* display success message */}
-            {register ? (
+            {/* {register ? (
             <p className="text-success">You are registered successfully!</p>
             ) : (
             <p className="text-danger">You are not registered</p>
-            )}
+            )} */}
+            <p className={className}>{helperText}</p>
 
         </Form>
         </div>

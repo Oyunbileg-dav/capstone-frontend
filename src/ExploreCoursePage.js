@@ -29,11 +29,10 @@ export default function ExploreCoursePage() {
           <div className="content">
           <h1 className="word">{data.courseName}</h1>
           <div class="card">
-          <h4>Course Code: {data.courseCode}</h4>
-          <h4>Description: {data.description}</h4>
-          <h4>Duration: {data.duration}</h4>
+          <h5>Description: {data.description}</h5>
+          <h5>Duration: {data.duration}</h5>
+          <h5><Link to={"/explore/courses/"+courseCode+"/enroll"}>Enroll in this course</Link></h5>
           <Link to="/dashboard">Back to dashboard</Link>
-          <Link to={"/explore/courses/"+courseCode+"/enroll"}>Enroll</Link>
           </div>
           <div className="video-player">
           <video src={video1} width="90%" controls="controls" autoplay="true" />

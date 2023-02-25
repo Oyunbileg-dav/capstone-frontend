@@ -33,7 +33,7 @@ export default function Dashboard() {
       });
   }, [])
 
-  if (!isLoading && data.length > 1){
+  if (!isLoading && data.length > 0){
     return (
       <div>
       <NavbarAuth/>
@@ -61,7 +61,9 @@ export default function Dashboard() {
         <h1 className="word">Enrolled courses</h1>
         <div class="card">
         {!isLoading &&
-          <h4>You have not enrolled in any courses yet!</h4>
+          <div class="container">
+          <h5>You have not enrolled in any courses yet! <Link to="/explore">Explore course</Link></h5>
+          </div>
           }
       </div>
       </div>

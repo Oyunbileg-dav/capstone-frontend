@@ -39,11 +39,11 @@ export default function NavbarAuth() {
         </MDBNavbarToggler>
         <MDBCollapse navbar show={showNavSecond}>
           <MDBNavbarNav>
-            <MDBNavbarLink active aria-current='page' href='/dashboard'>
+            <MDBNavbarLink  aria-current='page' href='/dashboard'>
               Dashboard
             </MDBNavbarLink>
-            <MDBNavbarLink href='/profile'>My Profile</MDBNavbarLink>
-            <MDBNavbarLink href='/explore'>Explore</MDBNavbarLink>
+            <MDBNavbarLink  aria-current='page' href='/profile'>My Profile</MDBNavbarLink>
+            <MDBNavbarLink  aria-current='page' href='/explore'>Explore</MDBNavbarLink>
           </MDBNavbarNav>
           <div style={{float:'right'}}>
           <Button onClick={() => logout()} style={{backgroundColor:'#232323'}} variant="secondary">Logout</Button>
