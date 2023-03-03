@@ -3,7 +3,6 @@ import { useEffect, useState  } from "react";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom"
 import NavbarAuth from "./NavbarAuth";
-import video1 from  "./videos/video1.mp4"
 
 export default function ExploreCoursePage() {
   const { courseCode } = useParams()
@@ -34,8 +33,8 @@ export default function ExploreCoursePage() {
           <h5><Link to={"/explore/courses/"+courseCode+"/enroll"}>Enroll in this course</Link></h5>
           <Link to="/dashboard">Back to dashboard</Link>
           </div>
-          <div className="video-player">
-          <video src={video1} width="90%" controls="controls" autoplay="true" />
+          <div class="player">
+            <iframe class="responsive-iframe" src="https://drive.google.com/file/d/14j5cGeDzAkbOJe9r1s7XomN919xtasVD/preview" allow="autoplay" title="course_intro"></iframe>
           </div>
           </div>
         </>

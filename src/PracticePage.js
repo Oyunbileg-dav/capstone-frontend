@@ -3,7 +3,6 @@ import { useEffect, useState,  } from "react";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom"
 import NavbarAuth from "./NavbarAuth";
-import video2 from  "./videos/video2.mp4"
 
 
 export default function PracticePage() {
@@ -38,8 +37,8 @@ export default function PracticePage() {
           <Link to="/dashboard">Back to dashboard</Link>
           </div>
           </div>
-          <div className="video-player">
-          <video src={video2} width="90%" controls="controls" autoplay="true" />
+          <div class="player">
+            <iframe class="responsive-iframe" src="https://drive.google.com/file/d/1slydTVTUuX5WUw9B5_uUnmok7nEbH4aX/preview" allow="autoplay" title="course_intro"></iframe>
           </div>
           </div>
         </>

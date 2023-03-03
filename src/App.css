@@ -160,6 +160,23 @@ img:hover {
   margin-top: 5px;
 }
 
+.player {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  padding-top: 56.25%;
+}
+
+.responsive-iframe {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+}
+
 .btn {
   border: 2px solid black;
   background-color: white;
